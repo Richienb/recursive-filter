@@ -1,6 +1,6 @@
 {
     "name": "recursive-filter",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "description": "Recursively filter an object or array.",
     "repository": "https://github.com/Richienb/recursive-filter.git",
     "author": "Richie Bendall <richiebendall@gmail.com>",
