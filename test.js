@@ -1,13 +1,18 @@
 import test from "ava"
-import theModule from "."
+import recursiveFilter from "."
 
 test("main", (t) => {
-    t.throws(() => {
-        theModule(123)
-    }, {
-        instanceOf: TypeError,
-        message: "Expected a string, got number",
-    })
-
-    t.is(theModule("unicorns"), "unicorns & rainbows")
+    t.deepEqual(recursiveFilter({
+        "_a": 1,
+        "b": "c",
+        "c": {
+            a: 1,
+            _b: "c",
+        },
+        "d": ["a", 1, {
+            a: 1,
+            _b: "c",
+        }],
+    }, (_value, key) => !key.startsWith("_")), { b: "c", c: { a: 1 }, d: ["a", 1, { a: 1 }] })
+    recursiveFilter(["a"])
 })

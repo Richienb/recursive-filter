@@ -1,8 +1,8 @@
 {
-    "name": "the-module",
+    "name": "recursive-filter",
     "version": "0.0.0",
-    "description": "My awesome module.",
-    "repository": "https://github.com/Richienb/the-module.git",
+    "description": "Recursively filter an object or array.",
+    "repository": "https://github.com/Richienb/recursive-filter.git",
     "author": "Richie Bendall <richiebendall@gmail.com>",
     "license": "MIT",
     "main": "index.js",
@@ -11,14 +11,16 @@
         "index.d.ts"
     ],
     "engines": {
-        "node": ">=8"
+        "node": ">=6"
     },
     "scripts": {
         "lint": "eslint .",
         "test": "yarn lint && ava"
     },
     "keywords": [],
-    "dependencies": {},
+    "dependencies": {
+        "lodash": "^4.17.15"
+    },
     "devDependencies": {
         "ava": "^2.1.0",
         "eslint": "^6.5.1",

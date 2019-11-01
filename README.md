@@ -1,41 +1,43 @@
-# The module [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/the-module/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/the-module)
+# Recursive filter [![Travis CI Build Status](https://img.shields.io/travis/com/Richienb/recursive-filter/master.svg?style=for-the-badge)](https://travis-ci.com/Richienb/recursive-filter)
 
-My awesome module.
+Recursively filter an object or array.
 
-[![NPM Badge](https://nodei.co/npm/the-module.png)](https://npmjs.com/package/the-module)
+[![NPM Badge](https://nodei.co/npm/recursive-filter.png)](https://npmjs.com/package/recursive-filter)
 
 ## Install
 
 ```sh
-npm install the-module
+npm install recursive-filter
 ```
 
 ## Usage
 
 ```js
-const theModule = require("the-module");
+const recursiveFilter = require("recursive-filter");
 
-theModule("unicorns");
-//=> 'unicorns & rainbows'
+recursiveFilter(
+    {
+        a: 1,
+        b: 2,
+        c: 3
+    },
+    (value, key) => key === "a" || value === 2
+);
+//=> { a: 1, b: 2 }
 ```
 
 ## API
 
-### theModule(input, options?)
+### recursiveFilter(obj, predicate)
 
-#### input
+#### obj
 
-Type: `string`
+Type: `object or array`
 
-Lorem ipsum.
+The object or array to filter.
 
-#### options
+#### predicate
 
-Type: `object`
+Type: `(value, key) => boolean-convertable`
 
-##### postfix
-
-Type: `string`\
-Default: `rainbows`
-
-Lorem ipsum.
+The predicate to compare the items to.

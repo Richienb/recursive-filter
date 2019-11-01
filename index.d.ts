@@ -1,14 +1,27 @@
+import _ from "lodash"
+
+type singleParamFn = (val: any) => any
+
 /**
- * My awesome module.
- * @param input Lorem ipsum.
- * @param postfix Lorem ipsum.
+ * Recursively filter out an object.
+ * @param obj The object or array to filter.
+ * @param predicate The predicate to compare the items to.
  * @example
  * ```
- * const theModule = require("the-module");
- * theModule("unicorns");
- * //=> 'unicorns & rainbows'
+ * const recursiveFilter = require("recursive-filter");
+ *
+ * recursiveFilter(
+ *     {
+ *         a: 1,
+ *         b: 2,
+ *         c: 3
+ *     },
+ *     (value, key) => key === "a" || value === 2
+ * );
+ * //=> { a: 1, b: 2 }
  * ```
 */
-declare function theModule(input: string, { postfix }: { postfix?: string }): string;
+declare function recursiveFilter<T extends object | any[]>(obj: T, predicate?: singleParamFn): Partial<T>;
+declare function recursiveFilter<T>(obj: T, predicate?: singleParamFn): T;
 
-export = theModule;
+export = recursiveFilter;
